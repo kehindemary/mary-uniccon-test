@@ -69,14 +69,16 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
                     margin: const EdgeInsets.only(
                       right: 23,
                     ),
-                    child: CustomText(
-                      text: showPassword ? 'Hide' : 'Show',
-                      color: CustomColors.neutralMain500,
-                      fontWeight: FontWeight.w500,
-                    )),
+                    child: showPassword
+                        ? const Icon(
+                            Icons.visibility_sharp,
+                            color: CustomColors.neutralMain400,
+                          )
+                        : const Icon(Icons.visibility_off_sharp,
+                            color: CustomColors.neutralMain400)),
               ),
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               hintText: widget.hintText,
               hintStyle: const TextStyle(
                   fontSize: 13,
@@ -87,25 +89,25 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
               errorBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.errorMain500),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(100.0),
+                  Radius.circular(10.0),
                 ),
               ),
               focusedErrorBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.errorMain500),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(100.0),
+                  Radius.circular(10.0),
                 ),
               ),
               focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: CustomColors.primaryMain500),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(100.0),
+                  Radius.circular(10.0),
                 ),
               ),
               errorStyle: const TextStyle(color: CustomColors.errorMain500),
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(100.0),
+                  Radius.circular(10.0),
                 ),
                 borderSide: BorderSide(color: CustomColors.neutralMain200),
               ),

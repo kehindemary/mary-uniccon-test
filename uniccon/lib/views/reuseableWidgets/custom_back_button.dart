@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:uniccon/constants/constants.dart';
-import 'package:uniccon/views/reuseableWidgets/custom_text.dart';
-import 'package:uniccon/views/reuseableWidgets/x_margin.dart';
 
 
 class Backbutton extends StatelessWidget {
@@ -13,21 +10,14 @@ class Backbutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: SvgPicture.asset('$icon/back.svg'),
-        ),
-        XMargin(space ?? 100),
-        CustomText(
-          text: title ?? '',
-          size: 16,
-          fontWeight: FontWeight.w500,
-        )
-      ],
+    return TextButton(
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: SvgPicture.asset('$icon/arrow-left.svg'),
+      ),
     );
   }
 }

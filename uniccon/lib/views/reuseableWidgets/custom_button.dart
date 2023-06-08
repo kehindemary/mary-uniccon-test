@@ -5,7 +5,7 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
     this.width,
-    this.radius = 100,
+    this.radius = 10,
     this.height = 50,
     required this.text,
     this.fontSize = 16,
@@ -21,8 +21,8 @@ class CustomButton extends StatelessWidget {
   final String text;
   final bool loading;
   final bool disabled;
-  final double height;
-  final double radius;
+  final double? height;
+  final double? radius;
   final double? width;
   final double? fontSize;
   final EdgeInsets padding;
@@ -41,11 +41,11 @@ class CustomButton extends StatelessWidget {
         onPressed: isDisabled ? null : onPressed,
         child: Container(
           width: width ?? double.infinity,
-          height: height,
+          height: height ?? 55,
           padding: padding,
           decoration: BoxDecoration(
               color: color ?? CustomColors.primaryMain500,
-              borderRadius: BorderRadius.circular(radius),
+              borderRadius: BorderRadius.circular(radius ?? 10),
               border: Border.all(
                   width: 1, color: borderColor ?? CustomColors.primaryMain500)),
           alignment: Alignment.center,

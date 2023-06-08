@@ -9,6 +9,8 @@ class CustomColors {
 
   static const success = Color(0xFFC1FB58);
 
+  static const warningColor = Color.fromARGB(255, 240, 196, 63);
+
   // ignore: use_full_hex_values_for_flutter_colors
   static const neutralMain200 = Color(0xFF1C1939B2);
 
@@ -20,9 +22,9 @@ class CustomColors {
 
   static const backgroundColor = Color(0xFFF5F7F9);
 
-  static const inputBorderColor = Color(0xFFF8F8F8);
+  static const inputBox = Color(0xFFF8F8F8);
 
-  static const inputBox = Color(0xFFCCD1D3);
+  static const inputBorderColor = Color(0xFFCCD1D3);
 
   static const primaryMain500 = Color(0xffE33B58);
 

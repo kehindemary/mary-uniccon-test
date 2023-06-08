@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:uniccon/utils/custom_colors.dart';
 import 'package:uniccon/views/reuseableWidgets/custom_text.dart';
@@ -19,6 +18,7 @@ class CustomInputField extends StatefulWidget {
     this.suffixIcon,
     this.icon,
     this.width,
+    this.bottom,
     this.controller,
     this.maxLines,
     this.borderRadius,
@@ -37,6 +37,7 @@ class CustomInputField extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? icon;
   final double? width;
+  final double? bottom;
   final TextEditingController? controller;
 
   @override
@@ -52,14 +53,14 @@ class _CustomInputFieldState extends State<CustomInputField> {
       children: [
         CustomText(
           text: widget.label ?? '',
-          color: CustomColors.neutralMain500,
+          color: CustomColors.neutralMain400,
         ),
         const YMargin(5),
         Container(
           width: widget.width ?? double.infinity,
-          padding: const EdgeInsets.only(bottom: 15),
+          padding: EdgeInsets.only(bottom: widget.bottom ?? 20),
           child: TextFormField(
-            cursorColor: CustomColors.neutralMain500,
+            cursorColor: CustomColors.neutralMain400,
             textInputAction: TextInputAction.done,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: widget.controller,
@@ -70,17 +71,17 @@ class _CustomInputFieldState extends State<CustomInputField> {
               fontFamily: 'Inter',
               fontSize: 13,
               fontWeight: FontWeight.w500,
-              color: CustomColors.neutralMain500,
+              color: CustomColors.neutralMain400,
             ),
             decoration: InputDecoration(
               suffixIcon: widget.suffixIcon,
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               hintText: widget.hintText,
               hintStyle: const TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
-                  color: CustomColors.neutralMain500),
+                  color: CustomColors.neutralMain400),
               fillColor: CustomColors.inputBox,
               filled: true,
               errorBorder: OutlineInputBorder(
