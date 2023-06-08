@@ -81,39 +81,39 @@ class _CustomInputFieldState extends State<CustomInputField> {
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
                   color: CustomColors.neutralMain500),
-              fillColor: CustomColors.white,
+              fillColor: CustomColors.inputBox,
               filled: true,
               errorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: CustomColors.errorMain500),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(widget.borderRadius ?? 100.0),
+                  Radius.circular(widget.borderRadius ?? 8.0),
                 ),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: CustomColors.errorMain500),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(widget.borderRadius ?? 100.0),
+                  Radius.circular(widget.borderRadius ?? 8.0),
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide:
-                    const BorderSide(color: CustomColors.primaryMain500),
+                    const BorderSide(color: CustomColors.inputFocusColor),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(widget.borderRadius ?? 100.0),
+                  Radius.circular(widget.borderRadius ?? 8.0),
                 ),
               ),
               errorStyle: const TextStyle(color: CustomColors.errorMain500),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(widget.borderRadius ?? 100.0),
+                  Radius.circular(widget.borderRadius ?? 8.0),
                 ),
                 borderSide:
-                    const BorderSide(color: CustomColors.neutralMain200),
+                    const BorderSide(color: CustomColors.inputBorderColor),
               ),
               labelStyle: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: CustomColors.defaultTextColor),
+                  color: CustomColors.neutralMain400),
             ),
             keyboardType: widget.inputType,
             obscureText: widget.isPassword! && !showPassword,

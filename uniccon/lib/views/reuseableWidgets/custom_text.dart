@@ -43,7 +43,7 @@ class CustomText extends StatelessWidget {
                   decoration: textDecoration,
                   fontSize: size ?? 12,
                   fontWeight: fontWeight ?? FontWeight.w400,
-                  color: color ?? CustomColors.defaultTextColor,
+                  color: color ?? CustomColors.neutralMain400,
                   wordSpacing: wordSpacing,
                   overflow: overflow,
                   fontFamily: fontFamily ?? 'Inter'),

@@ -16,7 +16,7 @@ class CustomColors {
 
   static const neutralMain50 = Color(0xFFFBFBFC);
 
-  static const defaultTextColor = Color(0xFF2B2A30);
+  static const inputFocusColor = Color(0xFF473767);
 
   static const backgroundColor = Color(0xFFF5F7F9);
 
