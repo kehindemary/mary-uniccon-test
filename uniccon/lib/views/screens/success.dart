@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uniccon/utils/custom_colors.dart';
+import 'package:uniccon/utils/custom_router.dart';
 import 'package:uniccon/views/reuseableWidgets/custom_button.dart';
 import 'package:uniccon/views/reuseableWidgets/custom_text.dart';
 import 'package:uniccon/views/reuseableWidgets/y_margin.dart';
+import 'package:uniccon/views/screens/sign_in.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});
@@ -28,7 +30,7 @@ class SuccessScreen extends StatelessWidget {
                     ),
                     YMargin(10),
                     CustomText(
-                      textAlign: TextAlign.center,
+                        textAlign: TextAlign.center,
                         text:
                             'Dear @kiks_faboro your Akiba account has\nbeen successfully created. Continue to \nstart using app'),
                   ],
@@ -37,10 +39,12 @@ class SuccessScreen extends StatelessWidget {
             ),
             const YMargin(300),
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomButton(
                 text: 'Continue',
-                onPressed: () {},
+                onPressed: () {
+                  CustomRouter.push(SignIn.routeName);
+                },
               ),
             )
           ],

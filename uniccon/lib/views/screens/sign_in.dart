@@ -1,190 +1,128 @@
 import 'package:flutter/material.dart';
+import 'package:uniccon/constants/constants.dart';
 import 'package:uniccon/utils/custom_colors.dart';
 import 'package:uniccon/utils/custom_router.dart';
-import 'package:uniccon/utils/custom_toast.dart';
 import 'package:uniccon/utils/validator.dart';
+import 'package:uniccon/views/reuseableWidgets/bottom_navigation.dart';
 import 'package:uniccon/views/reuseableWidgets/custom_button.dart';
 import 'package:uniccon/views/reuseableWidgets/custom_input.dart';
-import 'package:uniccon/views/reuseableWidgets/screen_template.dart';
+import 'package:uniccon/views/reuseableWidgets/custom_password_field.dart';
+import 'package:uniccon/views/reuseableWidgets/custom_text.dart';
 import 'package:uniccon/views/reuseableWidgets/y_margin.dart';
 
 // ignore: must_be_immutable
 class SignIn extends StatelessWidget {
-   SignIn({super.key});
+  SignIn({super.key});
   static String routeName = 'SignIn';
 
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
- bool isValid = false;
 
   final signInKey = GlobalKey<FormState>();
 
-  validateData() {
-    if (
-        emailController.text.isNotEmpty &&
-        phoneNumberController.text.isNotEmpty) {
-      isValid = true;
-    } else {
-      isValid = false;
-    }
-  }
-
-   Future<void> handleSubmit() async {
-    if (!signInKey.currentState!.validate()) {
-      return;
-    }
-    CustomRouter.push(SignIn.routeName);
+  Future<void> handleSubmit() async {
+   
+    CustomRouter.push(DashboardScreen.routeName);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScreenLayout(
-      title: 'Create your account',
-      subTitle:
-          'Let’s start by creating your Akiba account. Already have an account? Log in',
-      children: Form(
-        key: signInKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomInputField(
-              hintText: 'John doe',
-              inputType: TextInputType.text,
-              label: 'Full name',
-              validator: requiredField,
-              controller: firstNameController,
-              onChanged: (value) {
-                validateData();
-              },
+    return Scaffold(
+      body: Column(children: [
+        Container(
+            height: 400,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('$icon/login-img.png'), fit: BoxFit.cover),
             ),
-            CustomInputField(
-              hintText: 'Doe',
-              inputType: TextInputType.text,
-              label: 'Last name',
-              validator: requiredField,
-              controller: lastNameController,
-              onChanged: (value) {
-                validateData();
-              },
-            ),
-            CustomInputField(
-              hintText: 'john@gmail.com',
-              inputType: TextInputType.emailAddress,
-              label: 'Email address',
-              validator: emailValidator,
-              controller: emailController,
-              onChanged: (value) {
-                validateData();
-              },
-            ),
-            CustomInputField(
-              hintText: 'John doe',
-              inputType: TextInputType.text,
-              label: 'Mobile Number',
-              validator: requiredField,
-              controller: phoneNumberController,
-              onChanged: (value) {
-                validateData();
-              },
-            ),
-            const YMargin(12),
-            TextButton(
-              onPressed: () {},
-              child: const Center(
-                child: Text.rich(
-                  TextSpan(
-                    text: 'By continuing you agree to the ',
-                    style: TextStyle(color: CustomColors.neutralMain500),
-                    children: [
-                      TextSpan(
-                        text: 'Term of Service ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.neutralMain700,
+            child: Stack(
+              clipBehavior: Clip.none,
+              fit: StackFit.expand,
+              alignment: AlignmentDirectional.center,
+              children: [
+                Positioned(
+                    top: 350,
+                    width: 395,
+                    child: SingleChildScrollView(
+                      child: Container(
+                        height: 700,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(28),
+                              topRight: Radius.circular(28)),
+                          color: CustomColors.white,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(28.0),
+                          child: Form(
+                            key: signInKey,
+                            child: SizedBox(
+                              height: 300,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const YMargin(10),
+                                    const CustomText(
+                                      text: 'Welcome back 👋',
+                                      size: 24,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    const Text.rich(
+                                      TextSpan(
+                                        text:
+                                            'Log in to your Akiba account. \nNew to Akiba? ',
+                                        style: TextStyle(
+                                            color: CustomColors.neutralMain500,
+                                            fontSize: 16,
+                                            height: 1.4),
+                                        children: [
+                                          TextSpan(
+                                            text: 'Create an account',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              color: CustomColors.primaryMain500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const YMargin(30),
+                                    CustomInputField(
+                                      hintText: 'john@gmail.com',
+                                      inputType: TextInputType.emailAddress,
+                                      label: 'Email address or username',
+                                      controller: emailController,
+                                    ),
+                                    CustomPasswordField(
+                                      inputLabel: 'Password',
+                                      hintText: '',
+                                      controller: passwordController,
+                                    ),
+                                    const YMargin(12),
+                                    CustomButton(
+                                        height: 55,
+                                        text: 'Login',
+                                        onPressed: () {
+                                          print('object');
+                                          handleSubmit();
+                                        }),
+                                    Center(
+                                        child: TextButton(
+                                            onPressed: () {},
+                                            child: const CustomText(
+                                              text: 'Reset password?',
+                                              color: CustomColors.primaryMain500,
+                                              size: 16,
+                                            )))
+                                  ]),
+                            ),
+                          ),
                         ),
                       ),
-                      TextSpan(
-                        text: 'and ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.neutralMain500,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'Privacy Policy of IderaOS LLC ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.neutralMain700,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'of ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.neutralMain500,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'IderaOS LLC ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.neutralMain700,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const YMargin(22),
-            CustomButton(
-              text: 'Create a new account',
-              color: isValid
-                  ? CustomColors.primaryMain500
-                  : CustomColors.neutralMain500,
-              padding: const EdgeInsets.all(10),
-              borderColor: isValid
-                  ? Colors.transparent
-                  : CustomColors.neutralMain500,
-              onPressed: () {
-                isValid
-                    ? handleSubmit()
-                    : customToast(
-                        message: 'All fields are required',
-                        color: CustomColors.warningColor);
-              },
-            ),
-            TextButton(
-              onPressed: () => CustomRouter.push(SignIn.routeName),
-              child: const Center(
-                child: Text.rich(
-                  TextSpan(
-                    text: 'Already have an account? ',
-                    style: TextStyle(color: CustomColors.neutralMain500),
-                    children: [
-                      TextSpan(
-                        text: 'Sign In',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: CustomColors.primaryMain500,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+                    ))
+              ],
+            ))
+      ]),
     );
   }
 }

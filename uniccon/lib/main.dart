@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:uniccon/utils/custom_router.dart';
+import 'package:uniccon/views/screens/home.dart';
 import 'package:uniccon/views/screens/password_screen.dart';
 import 'package:uniccon/views/screens/sign_in.dart';
 import 'package:uniccon/views/screens/sign_up.dart';
@@ -8,6 +9,7 @@ import 'package:uniccon/views/screens/success.dart';
 import 'package:uniccon/views/screens/welcome_screen.dart';
 
 import 'utils/custom_colors.dart';
+import 'views/reuseableWidgets/bottom_navigation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +38,7 @@ class Uniccon extends StatelessWidget {
           primaryColor: CustomColors.primaryMain500,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: WelcomeScreen.routeName,
+        initialRoute: SignIn.routeName,
         navigatorKey: CustomRouter.navigatorKey,
         routes: {
           WelcomeScreen.routeName: (context) => const WelcomeScreen(),
@@ -44,6 +46,8 @@ class Uniccon extends StatelessWidget {
           SignIn.routeName: (context) => SignIn(),
           PasswordScreen.routeName: (context) => PasswordScreen(),
             SuccessScreen.routeName: (context) => const SuccessScreen(),
+             Home.routeName: (context) => const Home(),
+              DashboardScreen.routeName: (context) => const DashboardScreen(),
         },
       ),
     );

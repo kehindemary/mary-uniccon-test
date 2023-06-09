@@ -38,6 +38,7 @@ class SignUp extends StatelessWidget {
     if (!signUpKey.currentState!.validate()) {
       return;
     }
+    validateData();
     CustomRouter.push(PasswordScreen.routeName);
   }
 
@@ -51,30 +52,30 @@ class SignUp extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-              onTap: () => CustomRouter.push(SignIn.routeName),
-              child: const Text.rich(
-                TextSpan(
-                  text: 'Already have an account? ',
-                  style: TextStyle(color: CustomColors.neutralMain500),
-                  children: [
-                    TextSpan(
-                      text: 'Log In',
-                      style: TextStyle(
-                        fontSize: 12,
-                        decorationStyle: TextDecorationStyle.dashed,
-                        color: CustomColors.primaryMain500,
-                      ),
-                    )
-                  ],
-                ),
+            onTap: () => CustomRouter.push(SignIn.routeName),
+            child: const Text.rich(
+              TextSpan(
+                text: 'Already have an account? ',
+                style: TextStyle(color: CustomColors.neutralMain500),
+                children: [
+                  TextSpan(
+                    text: 'Log In',
+                    style: TextStyle(
+                      fontSize: 12,
+                      decorationStyle: TextDecorationStyle.dashed,
+                      color: CustomColors.primaryMain500,
+                    ),
+                  )
+                ],
               ),
             ),
+          ),
           Form(
             key: signUpKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               const YMargin(30),
+                const YMargin(30),
                 CustomInputField(
                   hintText: 'John doe',
                   inputType: TextInputType.text,
@@ -107,7 +108,7 @@ class SignUp extends StatelessWidget {
                 ),
                 CustomInputField(
                   hintText: 'John doe',
-                  inputType: TextInputType.text,
+                  inputType: TextInputType.number,
                   label: 'Mobile Number',
                   validator: requiredField,
                   controller: phoneNumberController,

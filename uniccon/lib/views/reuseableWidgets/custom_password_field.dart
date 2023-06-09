@@ -99,7 +99,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
                 ),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: CustomColors.primaryMain500),
+                borderSide: BorderSide(color: CustomColors.black),
                 borderRadius: BorderRadius.all(
                   Radius.circular(10.0),
                 ),
