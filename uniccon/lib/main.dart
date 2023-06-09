@@ -38,7 +38,7 @@ class Uniccon extends StatelessWidget {
           primaryColor: CustomColors.primaryMain500,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: SignIn.routeName,
+        initialRoute: WelcomeScreen.routeName,
         navigatorKey: CustomRouter.navigatorKey,
         routes: {
           WelcomeScreen.routeName: (context) => const WelcomeScreen(),
