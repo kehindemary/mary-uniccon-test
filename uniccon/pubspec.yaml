@@ -1,0 +1,43 @@
+name: uniccon
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^1.0.0
+  overlay_support: ^2.1.0
+  form_field_validator: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+      - family: Inter
+        fonts:
+          - asset: fonts/Inter-Regular.ttf
+          - asset: fonts/Inter-Black.ttf
+          - asset: fonts/Inter-Bold.ttf
+          - asset: fonts/Inter-ExtraBold.ttf
+          - asset: fonts/Inter-SemiBold.ttf
+          - asset: fonts/Inter-Light.ttf
+          - asset: fonts/Inter-Medium.ttf
+          - asset: fonts/Inter-Thin.ttf  
